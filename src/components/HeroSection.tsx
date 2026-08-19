@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, KeyRound } from 'lucide-react';
 import { TranslationStrings } from '../types';
-import heroDefaultBanner from '../assets/images/hero_security_banner_1787144480468.jpg';
+import heroDefaultBanner from '../../assets/image/image1.jpg';
 
 interface HeroSectionProps {
   t: TranslationStrings;

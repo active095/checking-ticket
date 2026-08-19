@@ -243,19 +243,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>{t.nav.activation}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-
-            {onOpenEmailPreview && (
-              <button
-                onClick={() => {
-                  onOpenEmailPreview();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full text-left px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 bg-slate-50 border border-slate-200 flex items-center gap-2"
-              >
-                <span>📬</span>
-                <span>{t.emailPreview.buttonLabel}</span>
-              </button>
-            )}
           </div>
         )}
       </header>
