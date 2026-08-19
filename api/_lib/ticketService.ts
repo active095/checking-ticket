@@ -99,30 +99,34 @@ export const USER_EMAIL_TRANSLATIONS: Record<string, EmailLocaleStrings> = {
 };
 
 export function getTransporter() {
-  const host = process.env.SMTP_HOST?.trim();
-  const user = process.env.SMTP_USER?.trim();
-  const pass = process.env.SMTP_PASS ? process.env.SMTP_PASS.trim().replace(/\s+/g, "") : "";
+  try {
+    const host = process.env.SMTP_HOST?.trim();
+    const user = process.env.SMTP_USER?.trim();
+    const pass = process.env.SMTP_PASS ? process.env.SMTP_PASS.trim().replace(/\s+/g, "") : "";
 
-  if (host && user && pass) {
-    if (host.includes("gmail.com") || host === "smtp.gmail.com") {
+    if (host && user && pass) {
+      if (host.includes("gmail.com") || host === "smtp.gmail.com") {
+        return nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user,
+            pass,
+          },
+        });
+      }
+
       return nodemailer.createTransport({
-        service: "gmail",
+        host,
+        port: Number(process.env.SMTP_PORT) || 587,
+        secure: process.env.SMTP_SECURE === "true" || process.env.SMTP_PORT === "465",
         auth: {
           user,
           pass,
         },
       });
     }
-
-    return nodemailer.createTransport({
-      host,
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: process.env.SMTP_SECURE === "true" || process.env.SMTP_PORT === "465",
-      auth: {
-        user,
-        pass,
-      },
-    });
+  } catch (err) {
+    console.error("Transporter creation error:", err);
   }
 
   return nodemailer.createTransport({

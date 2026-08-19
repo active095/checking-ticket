@@ -138,16 +138,27 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
         }),
       });
 
-      const data = await response.json();
+      let data: any = null;
+      try {
+        const text = await response.text();
+        data = text ? JSON.parse(text) : null;
+      } catch (parseErr) {
+        console.warn('Response was not valid JSON:', parseErr);
+      }
 
-      if (!response.ok || !data.success) {
-        throw new Error(data.error || t.error.message);
+      if (!response.ok || !data || !data.success) {
+        const errorMsg =
+          data?.error ||
+          (response.status === 404
+            ? "L'API de validation /api/submit-ticket n'a pas été trouvée sur le serveur."
+            : t.error.message);
+        throw new Error(errorMsg);
       }
 
       setSubmissionResult(data);
     } catch (err: any) {
       console.error('Submission failed:', err);
-      setSubmissionError(t.error.message);
+      setSubmissionError(err?.message || t.error.message);
     } finally {
       setIsSubmitting(false);
       setProcessingStep('');
