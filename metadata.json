@@ -1,0 +1,6 @@
+{
+  "name": "Checking Ticket",
+  "description": "Plateforme moderne, sécurisée et multilingue de vérification et d'activation de codes et tickets prépayés.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
