@@ -221,10 +221,6 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
               </span>
             </div>
 
-            <div className="flex items-center justify-between pt-2">
-              <span className="text-slate-500 font-medium">{t.confirmation.emailSentTo}</span>
-              <span className="text-slate-900 font-bold">{submissionResult.email}</span>
-            </div>
           </div>
 
           {/* Status Indicator */}
@@ -499,9 +495,6 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
             <div>
               <span className="block text-sm font-bold text-slate-900">
                 {t.form.hideCodeLabel}
-              </span>
-              <span className="text-xs text-slate-500">
-                Masque visuellement la saisie pour éviter l'exposition d'écran
               </span>
             </div>
 
