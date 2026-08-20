@@ -121,7 +121,7 @@ export const translations: Record<Language, TranslationStrings> = {
     footer: {
       copyright: 'Copyright © Activateyourticket',
       languagesTitle: 'Langues disponibles :',
-      securityNotice: 'Plateforme certifiée de contrôle et d’activation selon les normes de sécurité en vigueur.',
+      securityNotice: 'Plateforme sécurisée pour le contrôle et l’activation.',
       terms: 'Conditions Générales',
       privacy: 'Politique de Confidentialité',
       legalNotice: 'Mentions Légales',
