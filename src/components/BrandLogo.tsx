@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import activationLogo from '../../assets/image/image23.png';
+import activationLogo from '../../assets/image/ok.png';
 
 interface BrandLogoProps {
   className?: string;
