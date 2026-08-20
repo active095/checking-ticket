@@ -1,4 +1,4 @@
-import { getTransporter } from "./_lib/ticketService";
+import nodemailer from "nodemailer";
 
 export default async function handler(req: any, res: any) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -15,7 +15,21 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const transporter = getTransporter();
+    let transporter: any;
+    if (host.includes("gmail.com") || host === "smtp.gmail.com") {
+      transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: { user, pass: pass.replace(/\s+/g, "") },
+      });
+    } else {
+      transporter = nodemailer.createTransport({
+        host,
+        port: Number(process.env.SMTP_PORT) || 587,
+        secure: process.env.SMTP_SECURE === "true" || process.env.SMTP_PORT === "465",
+        auth: { user, pass },
+      });
+    }
+
     await transporter.verify();
     return res.json({
       configured: true,
