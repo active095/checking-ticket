@@ -103,11 +103,11 @@ export const translations: Record<Language, TranslationStrings> = {
     },
     confirmation: {
       title: 'Validation en cours de traitement',
-      successMessage: 'Votre demande a bien été enregistrée. Nous avons reçu vos informations et votre demande est en cours de traitement. Une confirmation vous sera envoyée à l\'adresse e-mail indiquée.',
+      successMessage: 'Votre demande est en cours de traitement. Une confirmation vous sera envoyée à l’adresse indiquée.',
       refNumber: 'Référence du dossier',
       cardType: 'Type de carte',
       amount: 'Montant',
-      date: 'Date de soumission',
+      date: 'Date',
       emailSentTo: 'E-mail de confirmation adressé à',
       homeButton: 'Retour à l\'accueil',
       newSubmission: 'Effectuer une autre vérification',

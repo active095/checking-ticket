@@ -44,9 +44,6 @@ export const SupportedCards: React.FC<SupportedCardsProps> = ({ t, onSelectCard 
                       <h3 className="font-extrabold text-lg text-slate-900 group-hover:text-cyan-600 transition-colors">
                         {card.title}
                       </h3>
-                      <p className="text-xs text-slate-500 font-medium mt-0.5">
-                        {t.supportedCards.cardSubtitles?.[card.type] || card.subtitle}
-                      </p>
                     </div>
                     <span className="text-[11px] font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                       {card.currency}

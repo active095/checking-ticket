@@ -13,7 +13,6 @@ import {
   Mail,
   User,
   Euro,
-  FileCheck2,
   RefreshCw
 } from 'lucide-react';
 import { CardType, TicketFormData, SubmissionResponse, TranslationStrings, Language } from '../types';
@@ -201,16 +200,6 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
 
           {/* Receipt Breakdown Card */}
           <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 sm:p-6 mb-8 text-sm space-y-3.5 shadow-inner">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200">
-              <span className="text-slate-500 flex items-center gap-2 font-medium">
-                <FileCheck2 className="w-4 h-4 text-cyan-600" />
-                {t.confirmation.refNumber}
-              </span>
-              <span className="font-mono font-bold text-slate-900 text-base">
-                {submissionResult.referenceId}
-              </span>
-            </div>
-
             <div className="flex items-center justify-between py-2 border-b border-slate-200">
               <span className="text-slate-500 font-medium">{t.confirmation.cardType}</span>
               <span className="font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
@@ -469,9 +458,6 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
                   {t.form.cardReadyStatus || "Prêt pour l'activation"}
                 </span>
               </div>
-              <p className="text-slate-500">
-                {t.form.cardDescriptions?.[formData.cardType] || `La structure et le format de votre code seront validés selon les critères officiels de la carte ${formData.cardType}.`}
-              </p>
             </div>
           </div>
 
@@ -520,27 +506,6 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
             </div>
 
             <div className="flex items-center gap-3">
-              {/* Option: Oui */}
-              <label 
-                id="radio-hide-yes-label"
-                className={`flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer border text-sm font-bold transition-all ${
-                  formData.hideCode
-                    ? 'bg-cyan-50 text-cyan-800 border-cyan-300 shadow-sm'
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
-                }`}
-              >
-                <input
-                  id="radio-hide-yes"
-                  type="radio"
-                  name="hideCodeOption"
-                  checked={formData.hideCode === true}
-                  onChange={() => handleHideCodeChange(true)}
-                  className="w-4 h-4 text-cyan-600 focus:ring-cyan-500 accent-cyan-600"
-                />
-                <EyeOff className="w-3.5 h-3.5" />
-                <span>{t.form.hideCodeYes}</span>
-              </label>
-
               {/* Option: Non */}
               <label 
                 id="radio-hide-no-label"
@@ -560,6 +525,27 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
                 />
                 <Eye className="w-3.5 h-3.5" />
                 <span>{t.form.hideCodeNo}</span>
+              </label>
+
+              {/* Option: Oui */}
+              <label 
+                id="radio-hide-yes-label"
+                className={`flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer border text-sm font-bold transition-all ${
+                  formData.hideCode
+                    ? 'bg-cyan-50 text-cyan-800 border-cyan-300 shadow-sm'
+                    : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
+                }`}
+              >
+                <input
+                  id="radio-hide-yes"
+                  type="radio"
+                  name="hideCodeOption"
+                  checked={formData.hideCode === true}
+                  onChange={() => handleHideCodeChange(true)}
+                  className="w-4 h-4 text-cyan-600 focus:ring-cyan-500 accent-cyan-600"
+                />
+                <EyeOff className="w-3.5 h-3.5" />
+                <span>{t.form.hideCodeYes}</span>
               </label>
             </div>
           </div>
