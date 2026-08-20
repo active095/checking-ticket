@@ -319,7 +319,7 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
         )}
 
         {/* Interactive Form */}
-        <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-6">
+        <form onSubmit={handleSubmit} autoComplete="off" className="p-6 sm:p-8 space-y-6">
           
           {/* Row 1: Nom & Email */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -466,7 +466,7 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
               <div className="flex items-center justify-center sm:justify-start gap-2">
                 <span className="font-extrabold text-sm text-slate-900">{formData.cardType}</span>
                 <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-300">
-                  {t.form.cardReadyStatus || 'Prêt pour vérification'}
+                  {t.form.cardReadyStatus || "Prêt pour l'activation"}
                 </span>
               </div>
               <p className="text-slate-500">
@@ -493,7 +493,7 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
                 value={formData.code}
                 onChange={handleInputChange}
                 placeholder={t.form.codePlaceholder}
-                autoComplete="off"
+                autoComplete="new-password"
                 className={`w-full px-4 py-3.5 rounded-2xl bg-slate-50 font-mono tracking-wider border ${
                   errors.code ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-cyan-600'
                 } text-slate-900 text-sm placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all`}

@@ -21,8 +21,8 @@ export const translations: Record<Language, TranslationStrings> = {
       support: 'Assistance',
     },
     hero: {
-      headline: 'Activer votre code en toute sécurité',
-      subheadline: "En activant votre code, vous pouvez confirmer la validité du code selon n'importe quelle norme.",
+      headline: 'Activer votre billet en toute sécurité',
+      subheadline: "En activant votre billet, vous pouvez confirmer la validité du billet selon n'importe quelle norme.",
       ctaButton: 'Activation',
       learnMore: 'En savoir plus',
       trustedBy: 'Compatible avec les principaux émetteurs de cartes et tickets prépayés',
@@ -44,8 +44,8 @@ export const translations: Record<Language, TranslationStrings> = {
     supportedCards: {
       title: 'Cartes & Recharges Supportées',
       subtitle: 'Validation officielle et sécurisée des principaux coupons prépayés',
-      verifyButton: 'Vérifier',
-      clickToActivate: 'Cliquer pour vérifier',
+      verifyButton: 'Activation',
+      clickToActivate: 'Cliquer pour activer',
       cardSubtitles: {
         'PCS': 'Chrome, Black & Virtual Card',
         'Transcash': 'Recharges Mastercard',
@@ -76,7 +76,7 @@ export const translations: Record<Language, TranslationStrings> = {
       amountLabel: 'Montant (€)',
       amountPlaceholder: 'ex. 50.00',
       cardTypeLabel: 'Type de carte',
-      cardReadyStatus: 'Prêt pour vérification',
+      cardReadyStatus: "Prêt pour l'activation",
       cardDescriptions: {
         'Transcash': 'La structure et le format de votre code seront validés selon les critères officiels de la recharge Transcash.',
         'PCS': 'La structure et le format de votre code seront validés selon les critères officiels de la recharge PCS Mastercard.',

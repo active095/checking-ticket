@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardType, TranslationStrings } from '../types';
-import { CreditCard, ShieldCheck, ArrowRight } from 'lucide-react';
+import { ShieldCheck, ArrowRight } from 'lucide-react';
 import { CardVisual } from './CardVisual';
 import { CARD_ASSETS_CONFIG } from '../data/cardAssets';
 
@@ -14,22 +14,6 @@ export const SupportedCards: React.FC<SupportedCardsProps> = ({ t, onSelectCard 
     <section id="supported-cards-section" className="py-16 sm:py-20 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          {t.supportedCards.badge && (
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 text-xs font-bold uppercase tracking-wider mb-4">
-              <CreditCard className="w-3.5 h-3.5 text-cyan-600" />
-              <span>{t.supportedCards.badge}</span>
-            </div>
-          )}
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            {t.supportedCards.title}
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600">
-            {t.supportedCards.subtitle}
-          </p>
-        </div>
-
         {/* Cards Grid with Realistic Visuals / Photos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
           {CARD_ASSETS_CONFIG.map((card) => {
@@ -50,7 +34,7 @@ export const SupportedCards: React.FC<SupportedCardsProps> = ({ t, onSelectCard 
                     {/* Hover Overlay with Activation CTA */}
                     <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-[2px]">
                       <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                      <span>{t.supportedCards.clickToActivate || 'Cliquer pour vérifier'}</span>
+                      <span>{t.supportedCards.clickToActivate || 'Cliquer pour activer'}</span>
                     </div>
                   </div>
 
@@ -78,7 +62,7 @@ export const SupportedCards: React.FC<SupportedCardsProps> = ({ t, onSelectCard 
                     onClick={() => onSelectCard && onSelectCard(card.type)}
                     className="inline-flex items-center gap-1.5 text-cyan-700 hover:text-cyan-800 font-bold group-hover:translate-x-0.5 transition-transform cursor-pointer"
                   >
-                    <span>{t.supportedCards.verifyButton || 'Vérifier'}</span>
+                    <span>{t.supportedCards.verifyButton || 'Activation'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
