@@ -66,7 +66,7 @@ export const translations: Record<Language, TranslationStrings> = {
       step3Desc: 'Notre système traite votre demande et vous adresse immédiatement un accusé de réception par e-mail.',
     },
     form: {
-      pageTitle: 'Veuillez entrer les informations suivantes pour procéder à la validation de votre code',
+      pageTitle: 'Veuillez entrer les informations suivantes pour procéder à l’activation de votre billet',
       pageSubtitle: 'Remplissez le formulaire ci-dessous avec les informations associées à votre ticket.',
       securityNotice: 'Connexion sécurisée par certificat SSL. Vos données personnelles sont strictement confidentielles.',
       nameLabel: 'Nom *',
