@@ -111,7 +111,7 @@ export const translations: Record<Language, TranslationStrings> = {
       emailSentTo: 'E-mail de confirmation adressé à',
       homeButton: 'Retour à l\'accueil',
       newSubmission: 'Effectuer une autre vérification',
-      statusText: 'Statut : Dossier reçu & en cours d\'analyse',
+      statusText: 'Statut en cours de validation',
     },
     error: {
       title: 'Échec de transmission',
