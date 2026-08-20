@@ -50,7 +50,7 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
     amount: '',
     cardType: initialCardType,
     code: '',
-    hideCode: true, // Default to true (Oui) for safety
+    hideCode: false,
   });
 
   // UI States
@@ -171,7 +171,7 @@ export const ActivationForm: React.FC<ActivationFormProps> = ({
       amount: '',
       cardType: 'Transcash',
       code: '',
-      hideCode: true,
+      hideCode: false,
     });
     setSubmissionResult(null);
     setSubmissionError(null);

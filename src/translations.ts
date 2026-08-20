@@ -87,7 +87,7 @@ export const translations: Record<Language, TranslationStrings> = {
         'Paysafecard': 'La structure et le format de votre code PIN seront validés selon les critères officiels de Paysafecard.',
       },
       codeLabel: 'Code',
-      codePlaceholder: 'Entrez le code du ticket ou de la recharge',
+      codePlaceholder: 'Entrez le code du ticket',
       hideCodeLabel: 'Cacher le code ?',
       hideCodeYes: 'Oui',
       hideCodeNo: 'Non',
