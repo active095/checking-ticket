@@ -380,7 +380,6 @@ app.post("/api/submit-ticket", async (req, res) => {
         "Votre demande a bien été enregistrée. Nous avons reçu vos informations et votre demande est en cours de traitement. Une confirmation vous sera envoyée à l'adresse e-mail indiquée.",
       emailDelivery: {
         adminNotified: adminEmailSent,
-        userNotified: userEmailSent,
       },
     });
   } catch (error) {
