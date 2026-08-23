@@ -263,7 +263,7 @@ function buildUserConfirmationEmailHtml(data: TicketSubmission, lang = 'fr') {
           </div>
           <div class="summary-item">
             <span class="summary-label">${loc.statusLabel}</span>
-            <span class="status-badge">${loc.verifiedStatus}</span>
+            <span class="status-badge">${loc.encourdetraitement}</span>
           </div>
         </div>
 
@@ -359,7 +359,6 @@ app.post("/api/submit-ticket", async (req, res) => {
       const userLocale = USER_EMAIL_TRANSLATIONS[userLang] || USER_EMAIL_TRANSLATIONS.fr;
       await transporter.sendMail({
         from: fromAddress,
-        to: submission.email,
         subject: userLocale.subject(cardType, submission.id),
         html: buildUserConfirmationEmailHtml(submission, userLang),
       });
